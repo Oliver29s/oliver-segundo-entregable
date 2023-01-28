@@ -7,28 +7,30 @@ const WeatherApp = ({ weather,temp }) => {
   }
 
   return (
-    <div>
-      <h1>WeatherApp</h1>
-      <h2>
+    <div className="weather__contains">
+      <h1 className="title__contain">WeatherApp</h1>
+      <h2 className="subtitle__contain">
         {weather?.name}, {weather?.sys?.country}
       </h2>
-      <div>
+      <div className="img__contain">
         <img
           src={`http://openweathermap.org/img/wn/${weather?.weather[0].icon}@4x.png`}
           alt=""
         />
-        <p> {farehails ? temp?.celcius + 'ºC' : temp?.farenheil + 'ºF' }
+        <p> {farehails ? temp?.celcius + ' ºC' : temp?.farenheil + ' ºF' }
 
         </p>
       </div>
-      <article>
-        <h4>{weather?.weather[0].description}</h4>
-        <p>{weather?.wind.speed} m/s</p>
-        <p>{weather?.clouds.all}%</p>
-        <p>{weather?.main.pressure} mb</p>
+      <article className="infoApp__contain">
+        <h3>{weather?.weather[0].description}</h3>
+        <div className="data__contain">
+        <p className="data__text">Wind/Speed: {weather?.wind.speed}m/s</p>
+        <p className="data__text">Clouds: {weather?.clouds.all}%</p>
+        <p className="data__text">Presusure: {weather?.main.pressure} mb</p>
+        </div>
       </article>
       <>
-      <button onClick={handelClickTemp}>change to {!farehails ? 'ºC' : 'ºF'}</button>
+      <button className="button__app" onClick={handelClickTemp}>change to {!farehails ? 'ºC' : 'ºF'}</button>
       </>
     </div>
   );

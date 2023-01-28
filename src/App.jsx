@@ -7,6 +7,7 @@ function App() {
   const [coords, setCoords] = useState();
   const [weather, setweather] = useState();
   const [temp, setTemp] = useState();
+  const [road, setRoad] = useState(true)
   useEffect(() => {
     const succes = (pos) => {
       setCoords({
@@ -31,12 +32,16 @@ function App() {
               farenheil: ((res.data.main.temp - 273.15) * 9 / 5 + 32).toFixed(1),
             });
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.log(err))
+        .finally(()=>{setRoad(!road)})
     }
   }, [coords]);
   return (
     <div className="App">
-      <WeatherApp weather={weather} temp={temp} />
+     { road ? 
+     <h1>road..</h1> 
+     :
+      <WeatherApp weather={weather} temp={temp} />}
     </div>
   );
 }
