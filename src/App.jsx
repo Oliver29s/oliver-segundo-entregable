@@ -33,7 +33,7 @@ function App() {
             });
         })
         .catch((err) => console.log(err))
-        .finally(()=>{setRoad(!road)})
+        // .finally(()=>{setRoad(!road)})
     }
   }, [coords]);
   return (
