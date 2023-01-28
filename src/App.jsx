@@ -24,19 +24,19 @@ function App() {
       const url = `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${apiKey}`;
       axios
         .get(url)
-        .then(
-          res => {setweather(res.data),
-          setTemp({
-            celcius: res.data.main.temp - 273.15,
-            farenheil: ((res.data.main.temp - 273.15) * 9) / 5 + 32,
-          })}
-        )
+        .then((res) => {
+          setweather(res.data),
+            setTemp({
+              celcius: (res.data.main.temp - 273.15).toFixed(1),
+              farenheil: ((res.data.main.temp - 273.15) * 9 / 5 + 32).toFixed(1),
+            });
+        })
         .catch((err) => console.log(err));
     }
   }, [coords]);
   return (
     <div className="App">
-      <WeatherApp weather={weather} />
+      <WeatherApp weather={weather} temp={temp} />
     </div>
   );
 }

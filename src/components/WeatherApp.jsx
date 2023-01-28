@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 
-const WeatherApp = ({ weather }) => {
-  
-  const weatherCelsius = weather =>{
-     let celcius =  weather.main.temp - 273.15 
-     return celcius
+const WeatherApp = ({ weather,temp }) => {
+  const [farehails, setFarehails] = useState(true)
+  const handelClickTemp = () =>{
+    setFarehails(!farehails)
   }
-  
-  console.log(weatherCelsius);
-  const [temperature, setTemperature] = useState()
+
   return (
     <div>
       <h1>WeatherApp</h1>
@@ -20,7 +17,9 @@ const WeatherApp = ({ weather }) => {
           src={`http://openweathermap.org/img/wn/${weather?.weather[0].icon}@4x.png`}
           alt=""
         />
-        <p>{}ºC</p>
+        <p> {farehails ? temp?.celcius + 'ºC' : temp?.farenheil + 'ºF' }
+
+        </p>
       </div>
       <article>
         <h4>{weather?.weather[0].description}</h4>
@@ -29,7 +28,7 @@ const WeatherApp = ({ weather }) => {
         <p>{weather?.main.pressure} mb</p>
       </article>
       <>
-      <button>change to</button>
+      <button onClick={handelClickTemp}>change to {!farehails ? 'ºC' : 'ºF'}</button>
       </>
     </div>
   );
