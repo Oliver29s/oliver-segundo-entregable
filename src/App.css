@@ -1,9 +1,10 @@
 .App{
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: rgb(0, 51, 255);
 }
 
 .weather__contains{
@@ -70,4 +71,5 @@
 
 .button__app:hover{
     transform: scale(1.2);
+    color: rgb(0, 51, 255)
 } 
