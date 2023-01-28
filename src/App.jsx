@@ -7,7 +7,7 @@ function App() {
   const [coords, setCoords] = useState();
   const [weather, setweather] = useState();
   const [temp, setTemp] = useState();
-  // const [road, setRoad] = useState(true)
+  const [road, setRoad] = useState(true)
   useEffect(() => {
     const succes = (pos) => {
       setCoords({
@@ -33,13 +33,15 @@ function App() {
             });
         })
         .catch((err) => console.log(err))
-        // .finally(()=>{setRoad(!road)})
+        .finally(()=>{setRoad(!road)})
     }
   }, [coords]);
   return (
     <div className="App">
-    
-      <WeatherApp weather={weather} temp={temp} />
+     { road ? 
+     <h1>road..</h1> 
+     :
+      <WeatherApp weather={weather} temp={temp} />}
     </div>
   );
 }
