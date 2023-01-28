@@ -6,6 +6,7 @@ import WeatherApp from "./components/WeatherApp";
 function App() {
   const [coords, setCoords] = useState();
   const [weather, setweather] = useState();
+  const [temp, setTemp] = useState();
   useEffect(() => {
     const succes = (pos) => {
       setCoords({
@@ -19,20 +20,25 @@ function App() {
 
   useEffect(() => {
     if (coords) {
-      const apiKey = '959162f01b305dd27c5a663cbd80b050'
-      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${apiKey}`
+      const apiKey = "959162f01b305dd27c5a663cbd80b050";
+      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${apiKey}`;
       axios
-      .get(url)
-      .then(res => setweather(res.data) )
-      .catch( err => console.log(err))
-
+        .get(url)
+        .then(
+          res => {setweather(res.data),
+          setTemp({
+            celcius: res.data.main.temp - 273.15,
+            farenheil: ((res.data.main.temp - 273.15) * 9) / 5 + 32,
+          })}
+        )
+        .catch((err) => console.log(err));
     }
   }, [coords]);
-
-  return <div className="App">
-    
-   <WeatherApp weather={weather}/>
-  </div>;
+  return (
+    <div className="App">
+      <WeatherApp weather={weather} />
+    </div>
+  );
 }
 
 export default App;

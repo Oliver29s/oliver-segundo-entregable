@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 const WeatherApp = ({ weather }) => {
-  console.log(weather);
+  
+  const weatherCelsius = weather =>{
+     let celcius =  weather.main.temp - 273.15 
+     return celcius
+  }
+  
+  console.log(weatherCelsius);
+  const [temperature, setTemperature] = useState()
   return (
     <div>
       <h1>WeatherApp</h1>
@@ -13,14 +20,17 @@ const WeatherApp = ({ weather }) => {
           src={`http://openweathermap.org/img/wn/${weather?.weather[0].icon}@4x.png`}
           alt=""
         />
-        <p>{weather?.main.temp}</p>
+        <p>{}ºC</p>
       </div>
       <article>
         <h4>{weather?.weather[0].description}</h4>
-        <p>{weather?.wind.speed}</p>
-        <p>{weather?.clouds.all}</p>
-        <p>{weather?.main.pressure}</p>
+        <p>{weather?.wind.speed} m/s</p>
+        <p>{weather?.clouds.all}%</p>
+        <p>{weather?.main.pressure} mb</p>
       </article>
+      <>
+      <button>change to</button>
+      </>
     </div>
   );
 };
