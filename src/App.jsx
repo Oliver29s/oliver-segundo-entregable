@@ -7,7 +7,7 @@ function App() {
   const [coords, setCoords] = useState();
   const [weather, setweather] = useState();
   const [temp, setTemp] = useState();
-  const [road, setRoad] = useState(true)
+  // const [road, setRoad] = useState(true)
   useEffect(() => {
     const succes = (pos) => {
       setCoords({
@@ -38,10 +38,8 @@ function App() {
   }, [coords]);
   return (
     <div className="App">
-     { road ? 
-     <h1>road..</h1> 
-     :
-      <WeatherApp weather={weather} temp={temp} />}
+    
+      <WeatherApp weather={weather} temp={temp} />
     </div>
   );
 }
