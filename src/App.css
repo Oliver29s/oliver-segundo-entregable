@@ -4,11 +4,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgb(0, 51, 255);
+    color: rgb(28, 30, 35);
 }
 
 .weather__contains{
-    background-color: rgb(190, 179, 179);
+    background-color: rgb(200, 99, 99);
     width: 60%;
     max-width: 400px;
     border-radius: 1rem;
@@ -18,7 +18,7 @@
     align-items: center;
     min-width: 300px;
     padding-right: 1.5rem;
-    opacity: 70%;
+    opacity: 90%;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
     
 
@@ -53,11 +53,16 @@
     display: grid;
     grid-template-columns: repeat(3,1fr);
     font-weight: bold;
+    gap: 0.5rem;
+    margin-left: 13px;
 }
 
-.data__text{
-    border-right:  1px solid rgb(8, 0, 0);
+.data__contain div{
+border-radius: 0.5rem;
+box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
 }
+
+
 
 .button__app{
     border: none;
@@ -67,9 +72,21 @@
     cursor: pointer;
     transition: 0.5s;
     font-weight: bold;
+    margin-top: 10px;
 }
 
 .button__app:hover{
     transform: scale(1.2);
     color: rgb(0, 51, 255)
-} 
+}
+
+.bx{
+    font-size: 25px;
+}
+
+
+.temp{
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}

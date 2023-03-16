@@ -3,7 +3,9 @@
 }
 
 body{
-    background-image: url('https://supercurioso.com/wp-content/uploads/2019/11/Qu%C3%A9-son-las-nubes-_-Descubre-sus-clases.jpg');
-    
-    
+    background-image: url('https://es.israel21c.org/wp-content/uploads/2018/08/israel-sunset-ashkelon-september-1168x657.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    overflow-y: hidden;
 }
